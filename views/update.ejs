@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Update</title>
+</head>	
+	<body>		
+		<table border="1">
+			<th>Nama</th>
+			<th>Tempat Lahir</th>
+			<th>Tgl lahir</th>
+			<th>Jenis Kelamin</th>
+			<th>Alamat</th>
+			<th>Agama</th>
+			<th>Status</th>
+			<th>Pekerjaan</th>
+			<th>Kewarganegaraan</th>
+			<th>Masa Berlaku</th>
+			<th>Action</th>
+			<% for(var i=0; i < data.length; i++){ %>
+				<tr>
+					<td><%= data[i].nama %></td>
+					<td><%= data[i].tempat_lahir %></td>
+					<td><%= data[i].tgl_lahir %></td>
+					<td><%= data[i].jenis_kelamin %></td>
+					<td><%= data[i].alamat %></td>
+					<td><%= data[i].agama %></td>
+					<td><%= data[i].status_perkawinan %></td>
+					<td><%= data[i].pekerjaan %></td>
+					<td><%= data[i].kewarganegaraan %></td>
+					<td><%= data[i].masa_berlaku %></td>
+					<td><a href="/create/<%= data[i].id %>">Update</a></td>
+				</tr>
+			<% } %>
+		<br/>
+		</table>
+		<input type="button" value="Back" onclick="backToHome()">
+	</body>
+	<script>
+		function backToHome() {
+			window.location = "http://localhost:8000";
+		}
+	</script>
+</html>

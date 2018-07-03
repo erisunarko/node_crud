@@ -1,0 +1,149 @@
+<html>
+<head>
+	<title>Create</title>
+</head>	
+	<body>
+		<% if(typeof data != "undefined"){ %>
+			<% var checked = "checked"; %>
+			<% var selected = "selected"; %>
+
+			<form method="POST" action="/update">
+			
+			<input type="hidden" name="id" value="<%= data[0].id %>" />
+
+			<input type="text" name="nama" value="<%= data[0].nama %>" />
+			<br/>
+
+			<input type="text" name="tempat_lahir" value="<%= data[0].tempat_lahir %>" />
+			<br/>
+
+			<input type="date" name="tgl_lahir" value="<%= data[0].tgl_lahir %>" />
+			<br/>
+
+			<input type="radio" name="jenis_kelamin" value="laki-laki" <% if (data[0].jenis_kelamin == "laki-laki"){ %>
+			<%- checked %>>laki-laki</input>
+			<br/>
+			<input type="radio" name="jenis_kelamin" value="perempuan">perempuan</input>
+			<% } else { %>
+			<input type="radio" name="jenis_kelamin" value="laki-laki">laki-laki</input>
+			<br/>
+			<input type="radio" name="jenis_kelamin" value="perempuan" <%- checked %>>perempuan</input>
+			<% } %>
+			<br/>
+
+			<textarea name="alamat" rows="5" cols="30"><%= data[0].alamat %></textarea>
+			<br/>
+
+			<select name="agama">
+				<% if (data[0].agama == "Islam"){ %>
+					<option value="Islam" selected>Islam</option>
+				<% } else { %>
+					<option value="Islam">Islam</option>
+				<% } %> 
+
+				<% if (data[0].agama == "Kristen"){ %>
+					<option value="Islam" selected>Kristen</option>
+				<% } else { %>
+					<option value="Islam">Kristen</option>
+				<% } %> 
+
+				<% if (data[0].agama == "Katholik"){ %>
+					<option value="Islam" selected>Katholik</option>
+				<% } else { %>
+					<option value="Islam">Katholik</option>
+				<% } %> 
+
+				<% if (data[0].agama == "Hindu"){ %>
+					<option value="Islam" selected>Hindu</option>
+				<% } else { %>
+					<option value="Islam">Hindu</option>
+				<% } %> 
+
+				<% if (data[0].agama == "Buddha"){ %>
+					<option value="Islam" selected>Buddha</option>
+				<% } else { %>
+					<option value="Islam">Buddha</option>
+				<% } %> 
+
+				<% if (data[0].agama == "Konghucu"){ %>
+					<option value="Islam" selected>Konghucu</option>
+				<% } else { %>
+					<option value="Islam">Konghucu</option>
+				<% } %> 
+
+			</select>
+			<br/>
+
+			<select name="status_perkawinan">
+				<% if (data[0].status_perkawinan == "Kawin"){ %>
+					<option value="Kawin" selected>Kawin</option>
+				<% } else { %>
+					<option value="Kawin">Kawin</option>
+				<% } %>
+				
+				<% if (data[0].status_perkawinan == "Belum Kawin"){ %>
+					<option value="Belum Kawin" selected>Belum Kawin</option>
+				<% } else { %>
+					<option value="Belum Kawin">Belum Kawin</option>
+				<% } %>				
+			</select>
+			<br/>
+
+			<input type="text" name="pekerjaan" value="<%= data[0].pekerjaan %>">
+			<br/>
+
+			<input type="text" name="kewarganegaraan" value="<%= data[0].kewarganegaraan %>">
+			<br/>
+
+			<input type="text" name="masa_berlaku" value="<%= data[0].masa_berlaku %>" />
+			<br/>
+			<input type="submit" value="Update Data">
+			<input type="button" value="Back" onclick="backToHome()">
+		</form>
+
+		<% } else { %>
+
+		<form method="POST" action="/create">
+			<input type="text" name="nama" />
+			<br/>
+			<input type="text" name="tempat_lahir" />
+			<br/>
+			<input type="date" name="tgl_lahir" />
+			<br/>
+			<input type="radio" name="jenis_kelamin" value="laki-laki" checked>laki-laki</input>
+			<br/>
+			<input type="radio" name="jenis_kelamin" value="perempuan">perempuan</input>
+			<br/>
+			<textarea name="alamat" rows="5" cols="30"></textarea>
+			<br/>
+			<select name="agama">
+				<option value="Islam">Islam</option>
+				<option value="Kristen">Kristen</option>
+				<option value="Katholik">Katholik</option>
+				<option value="Hindu">Hindu</option>
+				<option value="Buddha">Buddha</option>
+				<option value="Konghucu">Konghucu</option>
+			</select>
+			<br/>
+			<select name="status_perkawinan">
+				<option value="Kawin">Kawin</option>
+				<option value="Belum Kawin">Belum Kawin</option>
+			</select>
+			<br/>
+			<input type="text" name="pekerjaan">
+			<br/>
+			<input type="text" name="kewarganegaraan">
+			<br/>
+			<input type="text" name="masa_berlaku" />
+			<br/>		
+			<input type="submit" value="Save">
+			<input type="button" value="Back" onclick="backToHome()">
+		</form>
+		<% } %>
+	</body>
+	<script>
+		function backToHome(){
+			window.location = "http://localhost:8000";
+		}
+	</script>
+</html>
